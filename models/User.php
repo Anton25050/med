@@ -51,10 +51,11 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fio' => 'Fio',
-            'password' => 'Password',
-            'date_of_birth' => 'Date Of Birth',
-            'tel' => 'Tel',
+            'fio' => 'ФИО',
+            'password' => 'пароль',
+            'date_of_birth' => 'дата рождения',
+            'tel' => 'телефон',
+            'password_confirmation' => 'подтвердите пароль',
             'role_id' => 'Role ID',
         ];
     }

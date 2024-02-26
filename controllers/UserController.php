@@ -4,10 +4,10 @@ namespace app\controllers;
 
 use app\models\User;
 use app\models\Role;
-use app\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\UserRegister;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -53,7 +53,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $model = new User();
+        $model = new UserRegister();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
