@@ -56,10 +56,14 @@ class UserController extends Controller
         $model = new UserRegister();
 
         if ($this->request->isPost) {
+            // Можно поставить $model->validate(), для проверки валидации, но она автоматически проверяется методом $model->save()
             if ($model->load($this->request->post())) {
+                // Назначаем новому пользователю id роли пользователя
                 $model->role_id = Role::USER_ROLE_ID;
-                if($model->save()) {
-                    return $this->redirect('/site/index');
+                // Переносим сохранение модели в отдельное условие, чтобы была возможность добавить id роли до сохранения
+                if ($model->save()) {
+                    // Переносим пользователя на страницу аутентификации при успешном созранении модели
+                    return $this->redirect('/site/login');
                 }
             }
         } else {

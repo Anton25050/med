@@ -17,7 +17,7 @@ use Yii;
  * @property Reception[] $receptions
  * @property Role $role
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
