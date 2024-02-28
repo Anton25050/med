@@ -48,11 +48,11 @@ class Report extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fio' => 'fio',
-            'data_of_reception'=> 'data_of_reception',
-            'description' => 'Description',
-            'user_id' => 'User ID',
-            'status_id' => 'Status ID',
+            'fio' => 'ФИО',
+            'data_of_reception'=> 'Дата записи',
+            'description' => 'симптомы',
+            'user_id' => 'Пациент',
+            'status_id' => 'статус заявки',
         ];
     }
 
