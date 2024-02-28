@@ -34,7 +34,8 @@ class Report extends \yii\db\ActiveRecord
         return [
             [['description'], 'string'],
             [['user_id', 'status_id'], 'integer'],
-            [['number'], 'string', 'max' => 127],
+            [['fio'], 'string', 'max' => 127],
+            [['data_of_reception'],'safe'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => Status::class, 'targetAttribute' => ['status_id' => 'id']],
         ];
@@ -47,7 +48,8 @@ class Report extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'number' => 'Number',
+            'fio' => 'fio',
+            'data_of_reception'=> 'data_of_reception',
             'description' => 'Description',
             'user_id' => 'User ID',
             'status_id' => 'Status ID',

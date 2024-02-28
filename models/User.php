@@ -27,6 +27,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return 'user';
     }
 
+    public function __toString()
+    {
+        return $this->fio;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -79,7 +84,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->hasOne(Role::class, ['id' => 'role_id']);
     }
-    public static function getInstance() {
+    
+    public static function getInstance(): User {
         return Yii::$app->user->identity;
     }
 

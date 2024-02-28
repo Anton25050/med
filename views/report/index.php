@@ -33,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'fio',
             'data_of_reception',
             'description:ntext',
-            'user_id',
-            //'status_id',
+            'user',
+            'status',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Report $model, $key, $index, $column) {

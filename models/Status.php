@@ -21,6 +21,11 @@ class Status extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+     public function __toString()
+     {
+         return $this->name;
+     }
     public static function tableName()
     {
         return 'status';

@@ -18,7 +18,7 @@ class ReportSearch extends Report
     {
         return [
             [['id', 'user_id', 'status_id'], 'integer'],
-            [['number', 'description'], 'safe'],
+            [['fio', 'data_of_reception', 'description'], 'safe'],
         ];
     }
 
@@ -38,7 +38,7 @@ class ReportSearch extends Report
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id = null)
     {
         $query = Report::find();
 
@@ -59,11 +59,11 @@ class ReportSearch extends Report
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'user_id' => $this->user_id,
-            'status_id' => $this->status_id,
+            'user_id' => ($id ?? $this->user),
+            'status_id' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'number', $this->number])
+        $query->andFilterWhere(['like', 'fio', $this->fio])
             ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
