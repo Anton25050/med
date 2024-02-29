@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'number',
+            'fio',
             'description:ntext',
             'user',
             [
@@ -39,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     $html = Html::beginForm(['update', 'id' => $report->id]);
                     $html .= Html::activeDropDownList($report, 'status_id',
                         [
-                            2 => 'Подтверждена',
-                            3 => 'Отклонена'
+                            1 => 'Подтверждена',
+                            2 => 'Отклонена'
                         ],
                         [
                             'prompt' => [
